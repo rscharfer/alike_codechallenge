@@ -1,3 +1,46 @@
+nav {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: lightgray;
+}
+
+
+nav > div {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+
+.navigationList {
+  display:flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.navigationList > li {
+  /* give li width and center text in it  */
+  width: 200px;
+  text-align: center;
+  /* give list item height and center text  */
+  height: 50px;
+  line-height: 50px;
+   /* remove the list style from the list items */
+  list-style: none;
+  /* make it look like a button  */
+  cursor: pointer;
+
+}
+
+.navigationList > li:hover{
+  background-color: darkgray;
+}
+
+
+
+
 .App {
   text-align: center;
 }

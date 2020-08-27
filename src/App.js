@@ -4,6 +4,8 @@ import Overview from './Overview'
 import Campaigns from './Campaigns'
 import Create from './Create'
 
+
+
 import './App.css';
 
 
@@ -37,7 +39,7 @@ function App() {
 
   const selectCampaignData = campaign => campaignStore[campaign]
 
-  console.log('store', campaignStore);
+
 
   return (
     <Fragment>

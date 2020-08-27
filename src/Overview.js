@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react';
+import LineGraph from './LineGraph';
+
 
 
 export default function Overview({ thisWeeksData }){
   return (
-    <Fragment>
-      {/* <LineGraph data={thisWeeksData.installData} min={0} max={0} lines={5} name="test"/>
-      <LineGraph data={thisWeeksData.revenueData} min={0} max={0} lines={5} name="test"/> */}
-    </Fragment>
+    <div style={{display: 'flex'}}>
+       <LineGraph yaxis='installs' data={[30, 40, 45, 50, 49, 60, 70, 91]}/>
+       <LineGraph yaxis='revenue' data={[30, 40, 45, 50, 49, 60, 70, 91]}/>
+    </div>
   )
 } 

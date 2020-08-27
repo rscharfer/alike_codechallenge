@@ -1,3 +1,6 @@
+/* crap css solution - use styled components or modular CSS */
+
+
 nav {
   display:flex;
   flex-direction: row;

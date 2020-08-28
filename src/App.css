@@ -1,23 +1,24 @@
 /* crap css solution - use styled components or modular CSS */
 
+.overviewWrapper {
+  display: flex;
+}
 
 nav {
-  display:flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   background-color: lightgray;
+  margin-bottom: 10px;
 }
-
 
 nav > div {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-
-
 .navigationList {
-  display:flex;
+  display: flex;
   flex-direction: row;
   margin: 0;
   padding: 0;
@@ -29,16 +30,12 @@ nav > div {
   text-align: center;
   /* give list item height which pushes up the height  */
   line-height: 50px;
-   /* remove the list style from the list items */
+  /* remove the list style from the list items */
   list-style: none;
   /* make it look like a button  */
   cursor: pointer;
-
 }
 
-.navigationList > li:hover{
+.navigationList > li:hover {
   background-color: darkgray;
 }
-
-
-  

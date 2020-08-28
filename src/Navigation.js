@@ -1,15 +1,14 @@
-import React from 'react';
+import React from "react";
 
-
-export default function NavigationBar({ onNavChange }){
+export default function NavigationBar({ onNavChange }) {
   return (
     <nav>
-      <div> Applike FrontEnd Test</div>
+      <div>Applike FrontEnd Test</div>
       <ul className="navigationList">
-          <li onClick={ () => onNavChange('overview')} >Overview</li>
-          <li onClick={ () => onNavChange('campaigns')}>Campaigns</li>
-          <li onClick={ () => onNavChange('create')}>Create</li>
+        <li onClick={() => onNavChange("overview")}>Overview</li>
+        <li onClick={() => onNavChange("campaigns")}>Campaigns</li>
+        <li onClick={() => onNavChange("create")}>Create</li>
       </ul>
     </nav>
-  )
-} 
+  );
+}

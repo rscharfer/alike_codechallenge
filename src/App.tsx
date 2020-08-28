@@ -9,10 +9,13 @@ import Create from "./Create";
 // type script
 // start a portfolio site
 // write marcel
+// look at logic again
 
 import "./App.css";
 
-const withHeader = (Component) => (props) => {
+const withHeader = (Component : Function) : Function => (props : { 
+  [prop : string ] : any 
+}) => {
   return (
     <section>
       <h3>{Component.name}</h3>
@@ -21,7 +24,17 @@ const withHeader = (Component) => (props) => {
   );
 };
 
-const campaignReducer = (state, action) => {
+interface ActionObject{
+  type: string,
+  [prop: string] : any
+}
+
+const campaignReducer = (state : {
+  [prop: string] : {
+    installData: number[],
+    revenueData: number[],
+  }
+}, action : ActionObject) => {
   switch (action.type) {
     case "createCampaign": {
       return {
@@ -53,7 +66,7 @@ function App() {
   const [currentView, setCurrentView] = useState("overview");
   const [campaignStore, dispatch] = useReducer(campaignReducer, initState);
 
-  const selectCampaignData = (campaign) => campaignStore[campaign];
+  const selectCampaignData = (campaign : string ) => campaignStore[campaign];
 
   const OverviewWithHeader = withHeader(Overview);
   const CampaignsWithHeader = withHeader(Campaigns);

@@ -1,24 +1,21 @@
 import React, { Fragment, useState, useReducer } from "react";
+import Create from "./Create";
 import Navigation from "./Navigation";
 import Overview from "./Overview";
 import Campaigns from "./Campaigns";
-import Create from "./Create";
+
+
 
 // tests
 // styled components
-// type script
-// start a portfolio site
-// write marcel
 // look at logic again
 
-import "./App.css";
-
-const withHeader = (Component : Function) : Function => (props : { 
+const withHeader = (Component : Function, name: string) : Function => (props : { 
   [prop : string ] : any 
 }) => {
   return (
     <section>
-      <h3>{Component.name}</h3>
+      <h3>{name}</h3>
       <Component {...props} />
     </section>
   );
@@ -68,9 +65,9 @@ function App() {
 
   const selectCampaignData = (campaign : string ) => campaignStore[campaign];
 
-  const OverviewWithHeader = withHeader(Overview);
-  const CampaignsWithHeader = withHeader(Campaigns);
-  const CreateWithHeader = withHeader(Create);
+  const OverviewWithHeader = withHeader(Overview, 'Overview');
+  const CampaignsWithHeader = withHeader(Campaigns, 'Campaigns');
+  const CreateWithHeader = withHeader(Create, 'Create');
 
   return (
     <Fragment>
@@ -80,7 +77,7 @@ function App() {
           case "overview":
             // a week corresponds to a new campaign
             return (
-              <OverviewWithHeader
+              <OverviewWithHeader 
                 weeksData={selectCampaignData("campaign 2")}
               />
             );

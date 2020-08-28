@@ -1,10 +1,4 @@
-/* crap css solution - use styled components or modular CSS */
-
-.overviewWrapper {
-  display: flex;
-}
-
-nav {
+.navClass {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -12,7 +6,7 @@ nav {
   margin-bottom: 10px;
 }
 
-nav > div {
+.navClass > div {
   padding-left: 10px;
   padding-right: 10px;
 }

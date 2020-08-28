@@ -1,13 +1,18 @@
 import React from "react";
 import LineGraph from "./LineGraph";
 
-import styles from './Overview.module.css'
+import styled from "@emotion/styled";
+
+
+const FlexDiv = styled.div`
+  display: flex;
+`;
 
 export default function Overview({ weeksData }) {
   return (
-    <div className={styles.overviewWrapper}>
+    <FlexDiv>
       <LineGraph yaxis="installs" data={weeksData.installData} />
       <LineGraph yaxis="revenue" data={weeksData.revenueData} />
-    </div>
+    </FlexDiv>
   );
 }

@@ -12,7 +12,6 @@ const options = {
 
 
 export default function LineGraph({ yaxis, data }){
-  console.log('data shown here', data);
 
   const series = [
     { name : yaxis, data},

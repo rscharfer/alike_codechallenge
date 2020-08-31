@@ -2,10 +2,17 @@ import React, { Fragment, useState } from "react";
 import LineGraph from "./LineGraph";
 
 
-export default function Campaigns({ campaignStore }) {
+interface CampaignProps {
+  campaignStore: {
+    [prop: string] :{
+      installData : number[],
+    }
+  }
+}
+
+export default function Campaigns({ campaignStore } : CampaignProps) {
   const [view, setView] = useState("campaign 1");
   const campaigns = Object.keys(campaignStore);
-  // TODO: Proptypes! Typesecropt
   return (
     <Fragment>
       <select

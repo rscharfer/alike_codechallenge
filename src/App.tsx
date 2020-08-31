@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useReducer } from "react";
+import React, { Fragment, useState, useReducer, FunctionComponent } from "react";
 import Create from "./Create";
 import Navigation from "./Navigation";
 import Overview from "./Overview";
@@ -61,7 +61,7 @@ const initState = {
   },
 };
 
-function App() {
+const App: FunctionComponent = () => {
   const [currentView, setCurrentView] = useState("overview");
   const [campaignStore, dispatch] = useReducer(campaignReducer, initState);
 

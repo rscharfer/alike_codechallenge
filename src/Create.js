@@ -14,7 +14,7 @@ export default function Create({ dispatch }) {
             type: "createCampaign",
             payload: {
               name: textValue,
-              revenueData: [],
+              // TODO: grab data from the API here 
               installData: [],
             },
           });

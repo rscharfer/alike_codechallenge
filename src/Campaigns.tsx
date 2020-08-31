@@ -24,7 +24,8 @@ export default function Campaigns({ campaignStore } : CampaignProps) {
           </option>
         ))}
       </select>
-      <LineGraph yaxis="installs" data={campaignStore[view].installData} />
+      { campaignStore && campaignStore[view] && <LineGraph yaxis="installs" data={campaignStore[view].installData} />}
+   
     </Fragment>
   );
 }

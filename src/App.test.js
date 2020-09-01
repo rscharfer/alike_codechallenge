@@ -7,6 +7,7 @@ import ReactDOM from "react-dom";
 import {
   render,
   getQueriesForElement,
+  screen,
   fireEvent,
 } from "@testing-library/react";
 // the App we want to test
@@ -36,36 +37,32 @@ test("<App/> shows the Overview header when rendered", () => {
   expect(h3Overview).toBeInTheDocument();
 });
 
-test("a click on campaigns takes you to Campaigns view", () => {
+test("a click on campaigns takes you to Campaigns view", async () => {
   const { getByText } = render(<App />);
   fireEvent.click(getByText("Campaigns"));
-  // TODO:we need this to run after useEffect
-  // getByText('campaign 1')
-  // getByText('campaign 2')
+
+  expect(screen.findByText("campaign 1")).not.toBeNull();
+  expect(screen.findByText("campaign 2")).not.toBeNull();
 });
 
-// test("a click on create takes you to Create view", () => {
-//   const { getByText } = render(<App />);
-//   fireEvent.click(getByText('Create'))
-//   getByText('Create Campaign')
-// });
+test("a click on create takes you to Create view", () => {
+  const { getByText } = render(<App />);
+  fireEvent.click(getByText("Create"));
+  getByText("Create Campaign");
+});
 
 // test("adding a campaign adds a campaign", () => {
 //   const { getByText } = render(<App />);
 //   // go to 'Create' tab
-//   fireEvent.click(getByText('Create'));
+//   fireEvent.click(getByText("Create"));
 //   // enter something in input field
-//   const inputField = document.querySelector('input')
-//   userEvent.type(inputField, 'My new campaign')
+//   const inputField = document.querySelector("input");
+//   userEvent.type(inputField, "My new campaign");
 //   // click the button
-//   const createButton = getByText('Create Campaign');
+//   const createButton = getByText("Create Campaign");
 //   fireEvent.click(createButton);
 //   // to to 'Campaigns'
-//   fireEvent.click(getByText('Campaigns'));
+//   fireEvent.click(getByText("Campaigns"));
 //   // check to see if new campaign is there
-//   getByText('My new campaign')
+//   getByText("My new campaign");
 // });
-
-// when rendering the campaigns page, pull data from the api and u
-
-test("", () => expect(1).toBe(1));

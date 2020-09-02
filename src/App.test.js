@@ -6,7 +6,6 @@ import ReactDOM from "react-dom";
 // getQueriesForElement and fireEvent are from the the DOM Testing library
 import {
   render,
-  getQueriesForElement,
   screen,
   fireEvent,
 } from "@testing-library/react";
@@ -51,18 +50,19 @@ test("a click on create takes you to Create view", () => {
   getByText("Create Campaign");
 });
 
-// test("adding a campaign adds a campaign", () => {
-//   const { getByText } = render(<App />);
-//   // go to 'Create' tab
-//   fireEvent.click(getByText("Create"));
-//   // enter something in input field
-//   const inputField = document.querySelector("input");
-//   userEvent.type(inputField, "My new campaign");
-//   // click the button
-//   const createButton = getByText("Create Campaign");
-//   fireEvent.click(createButton);
-//   // to to 'Campaigns'
-//   fireEvent.click(getByText("Campaigns"));
-//   // check to see if new campaign is there
-//   getByText("My new campaign");
-// });
+test("adding a campaign adds a campaign", () => {
+  const { getByText } = render(<App />);
+  // screen.debug()
+  // go to 'Create' tab
+  fireEvent.click(getByText("Create"));
+  // enter something in input field
+  const inputField = document.querySelector("input");
+  userEvent.type(inputField, "My new campaign");
+  // click the button
+  const createButton = getByText("Create Campaign");
+  fireEvent.click(createButton);
+  // to to 'Campaigns'
+  fireEvent.click(getByText("Campaigns"));
+  // check to see if new campaign is there
+  getByText("My new campaign");
+});

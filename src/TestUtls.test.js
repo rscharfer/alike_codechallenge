@@ -59,7 +59,4 @@ test("", async () => {
   expect(container.querySelector("strong").textContent).toBe("43");
   expect(container.querySelector("strong").textContent).toBe("43");
   expect(container.textContent).toContain("Richardstrasse 62");
-  //expect(container.innerHTML).toBe(10);
-  // expect(container.querySelector("strong").textContent).toBe(43);
-  // expect(container.querySelector('strong').textContent).toBe(43)
 });

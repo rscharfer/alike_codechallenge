@@ -2,6 +2,7 @@
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 import React from "react";
+import axios from 'axios';
 
 // mocked
 import ApexCharts from "apexcharts";
@@ -10,6 +11,8 @@ import apiFunctions from "./api";
 import apiFunctionsForCampaign from "./apiFunctionsForCampaign";
 
 import App from "./App";
+
+jest.mock('axios')
 
 jest.mock("react-apexcharts", () => (props) => {
   const { series } = props;
@@ -121,6 +124,7 @@ jest.mock("./apiFunctionsForCampaign", () => () =>
 
 describe("render the app, and let it do all of the effects too", () => {
   test("<App/>", async () => {
+    console.log('mocked module', axios)
     await act(async () => {
       render(<App />, container);
     });

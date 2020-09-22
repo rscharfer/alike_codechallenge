@@ -2,7 +2,7 @@ import React from "react";
 
 import styled from '@emotion/styled'
 
-const StyledNav = styled.nav`
+const NavContainer = styled.nav`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -41,13 +41,13 @@ const StyledNav = styled.nav`
 
 export default function NavigationBar({ onNavChange }) {
   return (
-    <StyledNav >
+    <NavContainer >
       <div>Applike FrontEnd Test</div>
       <ul>
         <li onClick={() => onNavChange("overview")}>Overview</li>
         <li onClick={() => onNavChange("campaigns")}>Campaigns</li>
         <li onClick={() => onNavChange("create")}>Create</li>
       </ul>
-    </StyledNav>
+    </NavContainer>
   );
 }

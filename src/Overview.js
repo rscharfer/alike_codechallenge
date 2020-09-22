@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 import { pipe } from "./utilities";
 import { withNoNull, withHeader } from "./hocs";
 
-const FlexDiv = styled.div`
+const OverviewContainer = styled.div`
   display: flex;
 `;
 
@@ -15,10 +15,10 @@ export default function Overview({ weeksData }) {
   const revenueData = weeksData.revenue.map((d) => d.value);
 
   return (
-    <FlexDiv>
+    <OverviewContainer>
       <LineGraph yaxis="installs" data={installsData} />
       <LineGraph yaxis="revenue" data={revenueData} />
-    </FlexDiv>
+    </OverviewContainer>
   );
 }
 

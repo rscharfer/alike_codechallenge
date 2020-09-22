@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React from "react";
 
 import { CreateWithHeader } from "./Create";
 import Navigation from "./Navigation";
@@ -35,10 +35,10 @@ const campaignReducer = (state, action) => {
 };
 
 const App = () => {
-  const [currentView, setCurrentView] = useState("overview");
-  const [overviewData, setOverviewData] = useState(null);
+  const [currentView, setCurrentView] = React.useState("overview");
+  const [overviewData, setOverviewData] = React.useState(null);
 
-  const [campaignData, dispatch] = useReducer(campaignReducer, {});
+  const [campaignData, dispatch] = React.useReducer(campaignReducer, {});
 
   async function fetchOverviewDataWrapper() {
     const response = await fetchOverviewData();
@@ -53,11 +53,11 @@ const App = () => {
     });
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     fetchOverviewDataWrapper();
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     fetchCampaignDataWrapper();
   }, []);
 

@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useReducer, useEffect } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 
 import { CreateWithHeader } from "./Create";
 import Navigation from "./Navigation";
@@ -62,7 +62,7 @@ const App = () => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <Navigation onNavChange={setCurrentView} />
       {
         {
@@ -73,7 +73,7 @@ const App = () => {
           create: <CreateWithHeader dispatch={dispatch} />,
         }[currentView]
       }
-    </Fragment>
+    </>
   );
 };
 

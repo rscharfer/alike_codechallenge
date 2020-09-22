@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React from "react";
 import LineGraph from "./LineGraph";
 
 import { withHeader, withNoEmptyObject } from "./hocs";
@@ -7,7 +7,7 @@ import { pipe } from "./utilities";
 export default function Campaigns({ campaignStoreData }) {
   // when know there will be something to show the user from the campaign store
   // but we do not know what.  There will either be data from the API or something from the user itself
-  const [view, changeView] = useState(Object.keys(campaignStoreData)[0]);
+  const [view, changeView] = React.useState(Object.keys(campaignStoreData)[0]);
   const campaignList = Object.keys(campaignStoreData);
 
   function selectInstallData(view) {
@@ -16,7 +16,7 @@ export default function Campaigns({ campaignStoreData }) {
   const installData = selectInstallData(view);
 
   return (
-    <Fragment>
+    <>
       <select onChange={(e) => changeView(e.target.value)}>
         {campaignList.map((campaign) => (
           <option key={campaign} value={campaign}>
@@ -25,11 +25,11 @@ export default function Campaigns({ campaignStoreData }) {
         ))}
       </select>
       <LineGraph yaxis="installs" data={installData} />
-    </Fragment>
+    </>
   );
 }
 
-export const JackedUpCampaignComponent = pipe(
+export const JackedUpCampaigns = pipe(
   withHeader("Campaigns"),
   withNoEmptyObject("campaignStoreData")
 )(Campaigns);

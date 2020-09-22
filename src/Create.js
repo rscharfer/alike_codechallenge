@@ -1,32 +1,25 @@
-import React, { useState, Fragment } from "react";
+import React from "react";
 
 import { withHeader } from "./hocs";
 
-export default function Create({ dispatch }) {
-  const [textValue, setTextValue] = useState("");
+export default function CreateCampaign({ clickHandler }) {
+  const [textValue, setTextValue] = React.useState("");
   return (
-    <Fragment>
+    <>
       <input
         value={textValue}
         onChange={(event) => setTextValue(event.target.value)}
       />
       <button
-        onClick={() => {
-          dispatch({
-            type: "createCampaign",
-            payload: {
-              name: textValue,
-              // TODO: grab data from the API here
-              installData: [],
-            },
-          });
+        onClick={(textValue) => {
+          clickHandler(textValue);
           setTextValue("");
         }}
       >
         Create Campaign
       </button>
-    </Fragment>
+    </>
   );
 }
 
-export const CreateWithHeader = withHeader("Create")(Create);
+export const CreateCampaignWithHeader = withHeader("Create")(CreateCampaign);

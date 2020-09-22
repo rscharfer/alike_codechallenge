@@ -1,9 +1,9 @@
 import React from "react";
 
-import { CreateWithHeader } from "./Create";
+import { CreateCampaignWithHeader } from "./Create";
 import Navigation from "./Navigation";
 import { JackedUpOverview } from "./Overview";
-import { JackedUpCampaignComponent } from "./Campaigns";
+import { JackedUpCampaigns } from "./Campaigns";
 
 import fetchOverviewData from "./api";
 import fetchCampaignData from "./apiFunctionsForCampaign";
@@ -61,16 +61,24 @@ const App = () => {
     fetchCampaignDataWrapper();
   }, []);
 
+  const createNewCampaign = (campaignName) => {
+    dispatch({
+      type: "createCampaign",
+      payload: {
+        name: campaignName,
+        installData: [],
+      },
+    });
+  };
+
   return (
     <>
       <Navigation onNavChange={setCurrentView} />
       {
         {
           overview: <JackedUpOverview weeksData={overviewData} />,
-          campaigns: (
-            <JackedUpCampaignComponent campaignStoreData={campaignData} />
-          ),
-          create: <CreateWithHeader dispatch={dispatch} />,
+          campaigns: <JackedUpCampaigns campaignStoreData={campaignData} />,
+          create: <CreateCampaignWithHeader clickHandler={createNewCampaign} />,
         }[currentView]
       }
     </>

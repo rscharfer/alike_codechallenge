@@ -11,7 +11,7 @@ export default function CreateCampaign({ clickHandler }) {
         onChange={(event) => setTextValue(event.target.value)}
       />
       <button
-        onClick={(textValue) => {
+        onClick={() => {
           clickHandler(textValue);
           setTextValue("");
         }}

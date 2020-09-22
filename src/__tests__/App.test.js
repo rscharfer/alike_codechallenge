@@ -124,7 +124,6 @@ jest.mock("./apiFunctionsForCampaign", () => () =>
 
 describe("render the app, and let it do all of the effects too", () => {
   test("<App/>", async () => {
-    console.log('mocked module', axios)
     await act(async () => {
       render(<App />, container);
     });

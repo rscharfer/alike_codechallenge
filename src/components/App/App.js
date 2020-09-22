@@ -10,6 +10,14 @@ import fetchCampaignData from "../../api/apiFunctionsForCampaign";
 
 const campaignReducer = (state, action) => {
   switch (action.type) {
+    case "createCampaign": {
+      return {
+        ...state,
+        [action.payload.name]: {
+          installData: action.payload.installData,
+        },
+      };
+    }
     case "createCampaigns": {
       const initCampaignDataObject = {};
       // make new object with the data to merge into state

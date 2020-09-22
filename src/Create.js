@@ -1,5 +1,7 @@
 import React, { useState, Fragment } from "react";
 
+import { withHeader } from "./hocs";
+
 export default function Create({ dispatch }) {
   const [textValue, setTextValue] = useState("");
   return (
@@ -14,7 +16,7 @@ export default function Create({ dispatch }) {
             type: "createCampaign",
             payload: {
               name: textValue,
-              // TODO: grab data from the API here 
+              // TODO: grab data from the API here
               installData: [],
             },
           });
@@ -26,3 +28,5 @@ export default function Create({ dispatch }) {
     </Fragment>
   );
 }
+
+export const CreateWithHeader = withHeader("Create")(Create);

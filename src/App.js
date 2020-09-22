@@ -1,34 +1,12 @@
 import React, { Fragment, useState, useReducer, useEffect } from "react";
 
-import Create from "./Create";
+import { CreateWithHeader } from "./Create";
 import Navigation from "./Navigation";
-import Overview from "./Overview";
-import Campaigns from "./Campaigns";
+import { JackedUpOverview } from "./Overview";
+import { JackedUpCampaignComponent } from "./Campaigns";
 
 import fetchOverviewData from "./api";
 import fetchCampaignData from "./apiFunctionsForCampaign";
-
-const withHeader = (name) => (Component) => (props) => {
-  return (
-    <section>
-      <h3>{name}</h3>
-      <Component {...props} />
-    </section>
-  );
-};
-
-const withNoEmptyObject = (maybeEmptyObjectProp) => (Component) => (props) => {
-  if (Object.keys(props[maybeEmptyObjectProp]).length === 0)
-    return `${maybeEmptyObjectProp} is empty`;
-  else return <Component {...props} />;
-};
-
-const withNoNull = (maybeNullProp) => (Component) => (props) => {
-  return props[maybeNullProp] === null ? null : <Component {...props} />;
-};
-
-const pipe = (...fncs) => (component) =>
-  fncs.reduce((acc, next) => next(acc), component);
 
 const campaignReducer = (state, action) => {
   switch (action.type) {
@@ -44,25 +22,13 @@ const campaignReducer = (state, action) => {
       return state;
   }
 };
-//
+
 
 const App = () => {
   const [currentView, setCurrentView] = useState("overview");
   const [overviewData, setOverviewData] = useState(null);
 
   const [campaignData, dispatch] = useReducer(campaignReducer, {});
-
-  const CreateWithHeader = withHeader("Create")(Create);
-
-  const JackedUpCampaignComponent = pipe(
-    withHeader("Campaigns"),
-    withNoEmptyObject("campaignStoreData")
-  )(Campaigns);
-
-  const JackedUpOverview = pipe(
-    withNoNull("weeksData"),
-    withHeader("Overview")
-  )(Overview);
 
   async function fetchOverviewDataWrapper() {
     const response = await fetchOverviewData();

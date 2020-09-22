@@ -3,6 +3,9 @@ import LineGraph from "./LineGraph";
 
 import styled from "@emotion/styled";
 
+import { pipe } from "./utilities";
+import { withNoNull, withHeader } from "./hocs";
+
 const FlexDiv = styled.div`
   display: flex;
 `;
@@ -18,3 +21,8 @@ export default function Overview({ weeksData }) {
     </FlexDiv>
   );
 }
+
+export const JackedUpOverview = pipe(
+  withNoNull("weeksData"),
+  withHeader("Overview")
+)(Overview);

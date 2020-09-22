@@ -1,6 +1,9 @@
 import React, { Fragment, useState } from "react";
 import LineGraph from "./LineGraph";
 
+import { withHeader, withNoEmptyObject } from "./hocs";
+import { pipe } from "./utilities";
+
 export default function Campaigns({ campaignStoreData }) {
   // when know there will be something to show the user from the campaign store
   // but we do not know what.  There will either be data from the API or something from the user itself
@@ -25,3 +28,8 @@ export default function Campaigns({ campaignStoreData }) {
     </Fragment>
   );
 }
+
+export const JackedUpCampaignComponent = pipe(
+  withHeader("Campaigns"),
+  withNoEmptyObject("campaignStoreData")
+)(Campaigns);

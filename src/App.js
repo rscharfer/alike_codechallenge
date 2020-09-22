@@ -12,6 +12,7 @@ const campaignReducer = (state, action) => {
   switch (action.type) {
     case "createCampaigns": {
       const initCampaignDataObject = {};
+      // make new object with the data to merge into state
       const campaignData = action.payload.reduce((acc, next) => {
         const campaignName = next.name;
         const campaignInstallData = next.installs.map((i) => i.value);
@@ -46,12 +47,12 @@ const App = () => {
 
   async function fetchCampaignDataWrapper() {
     const response = await fetchCampaignData();
-
     dispatch({
       type: "createCampaigns",
       payload: response,
     });
   }
+
   useEffect(() => {
     fetchOverviewDataWrapper();
   }, []);
@@ -63,20 +64,15 @@ const App = () => {
   return (
     <Fragment>
       <Navigation onNavChange={setCurrentView} />
-      {(function () {
-        switch (currentView) {
-          case "overview":
-            return <JackedUpOverview weeksData={overviewData} />;
-          case "campaigns":
-            return (
-              <JackedUpCampaignComponent campaignStoreData={campaignData} />
-            );
-          case "create":
-            return <CreateWithHeader dispatch={dispatch} />;
-          default:
-            return null;
-        }
-      })()}
+      {
+        {
+          overview: <JackedUpOverview weeksData={overviewData} />,
+          campaigns: (
+            <JackedUpCampaignComponent campaignStoreData={campaignData} />
+          ),
+          create: <CreateWithHeader dispatch={dispatch} />,
+        }[currentView]
+      }
     </Fragment>
   );
 };

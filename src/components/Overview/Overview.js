@@ -1,10 +1,10 @@
 import React from "react";
-import LineGraph from "./LineGraph";
+import LineGraph from "../LineGraph/LineGraph";
 
 import styled from "@emotion/styled";
 
-import { pipe } from "./utilities";
-import { withNoNull, withHeader } from "./hocs";
+import { pipe } from "../../utils/utilities";
+import { withNoNull, withHeader } from "../../hocs/hocs";
 
 const OverviewContainer = styled.div`
   display: flex;

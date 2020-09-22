@@ -1,12 +1,12 @@
 import React from "react";
 
-import { CreateCampaignWithHeader } from "./Create";
-import Navigation from "./Navigation";
-import { JackedUpOverview } from "./Overview";
-import { JackedUpCampaigns } from "./Campaigns";
+import { CreateCampaignWithHeader } from "../CreateCampaign/CreateCampaign";
+import Navigation from "../Navigation/Navigation";
+import { JackedUpOverview } from "../Overview/Overview";
+import { JackedUpCampaigns } from "../Campaigns/Campaigns";
 
-import fetchOverviewData from "./api";
-import fetchCampaignData from "./apiFunctionsForCampaign";
+import fetchOverviewData from "../../api/api";
+import fetchCampaignData from "../../api/apiFunctionsForCampaign";
 
 const campaignReducer = (state, action) => {
   switch (action.type) {

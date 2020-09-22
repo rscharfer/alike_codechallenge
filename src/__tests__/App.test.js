@@ -11,7 +11,7 @@ import {
 } from "@testing-library/react";
 // the App we want to test
 import userEvent from "@testing-library/user-event";
-import App from "./App";
+import App from "../components/App/App";
 
 // mocking ApexCharts and ReactApexCharts to get rid of the error that is thrown
 import ApexCharts from "apexcharts";

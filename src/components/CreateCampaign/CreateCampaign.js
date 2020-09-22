@@ -1,6 +1,6 @@
 import React from "react";
 
-import { withHeader } from "./hocs";
+import { withHeader } from "../../hocs/hocs";
 
 export default function CreateCampaign({ clickHandler }) {
   const [textValue, setTextValue] = React.useState("");

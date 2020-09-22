@@ -7,8 +7,8 @@ import axios from 'axios';
 // mocked
 import ApexCharts from "apexcharts";
 import ReactApexChart from "react-apexcharts";
-import apiFunctions from "./api";
-import apiFunctionsForCampaign from "./apiFunctionsForCampaign";
+import apiFunctions from "../../api/api";
+import apiFunctionsForCampaign from "../../api/apiFunctionsForCampaign";
 
 import App from "./App";
 

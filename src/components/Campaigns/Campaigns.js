@@ -1,8 +1,8 @@
 import React from "react";
-import LineGraph from "./LineGraph";
+import LineGraph from "../LineGraph/LineGraph";
 
-import { withHeader, withNoEmptyObject } from "./hocs";
-import { pipe } from "./utilities";
+import { withHeader, withNoEmptyObject } from "../../hocs/hocs";
+import { pipe } from "../../utils/utilities";
 
 export default function Campaigns({ campaignStoreData }) {
   // when know there will be something to show the user from the campaign store

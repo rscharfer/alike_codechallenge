@@ -22,7 +22,7 @@ export default function Overview({ weeksData }) {
   );
 }
 
-export const JackedUpOverview = pipe(
+export const OverviewView = pipe(
   withNoNull("weeksData"),
   withHeader("Overview")
 )(Overview);

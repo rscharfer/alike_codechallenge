@@ -1,9 +1,9 @@
 import React from "react";
 
-import { CreateCampaignWithHeader } from "../CreateCampaign/CreateCampaign";
+import { CreateCampaignView } from "../CreateCampaign/CreateCampaign";
 import Navigation from "../Navigation/Navigation";
-import { JackedUpOverview } from "../Overview/Overview";
-import { JackedUpCampaigns } from "../Campaigns/Campaigns";
+import { OverviewView } from "../Overview/Overview";
+import { CampaignsView } from "../Campaigns/Campaigns";
 
 import fetchOverviewData from "../../api/api";
 import fetchCampaignData from "../../api/apiFunctionsForCampaign";
@@ -84,9 +84,9 @@ const App = () => {
       <Navigation onNavChange={setCurrentView} />
       {
         {
-          overview: <JackedUpOverview weeksData={overviewData} />,
-          campaigns: <JackedUpCampaigns campaignStoreData={campaignData} />,
-          create: <CreateCampaignWithHeader clickHandler={createNewCampaign} />,
+          overview: <OverviewView weeksData={overviewData} />,
+          campaigns: <CampaignsView campaignStoreData={campaignData} />,
+          create: <CreateCampaignView clickHandler={createNewCampaign} />,
         }[currentView]
       }
     </>

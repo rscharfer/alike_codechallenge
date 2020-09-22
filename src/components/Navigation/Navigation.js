@@ -42,7 +42,7 @@ const NavContainer = styled.nav`
 export default function NavigationBar({ onNavChange }) {
   return (
     <NavContainer >
-      <div>Applike FrontEnd Test</div>
+      <div>A FrontEnd Test</div>
       <ul>
         <li onClick={() => onNavChange("overview")}>Overview</li>
         <li onClick={() => onNavChange("campaigns")}>Campaigns</li>

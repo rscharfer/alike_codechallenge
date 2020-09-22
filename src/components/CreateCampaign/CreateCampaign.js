@@ -22,4 +22,4 @@ export default function CreateCampaign({ clickHandler }) {
   );
 }
 
-export const CreateCampaignWithHeader = withHeader("Create")(CreateCampaign);
+export const CreateCampaignView = withHeader("Create")(CreateCampaign);

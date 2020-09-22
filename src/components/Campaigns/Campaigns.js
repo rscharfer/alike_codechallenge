@@ -29,7 +29,7 @@ export default function Campaigns({ campaignStoreData }) {
   );
 }
 
-export const JackedUpCampaigns = pipe(
+export const CampaignsView = pipe(
   withHeader("Campaigns"),
   withNoEmptyObject("campaignStoreData")
 )(Campaigns);

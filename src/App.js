@@ -10,19 +10,28 @@ import fetchCampaignData from "./apiFunctionsForCampaign";
 
 const campaignReducer = (state, action) => {
   switch (action.type) {
-    case "createCampaign": {
+    case "createCampaigns": {
+      const initCampaignDataObject = {};
+      const campaignData = action.payload.reduce((acc, next) => {
+        const campaignName = next.name;
+        const campaignInstallData = next.installs.map((i) => i.value);
+        return {
+          ...acc,
+          [campaignName]: {
+            installData: campaignInstallData,
+          },
+        };
+      }, initCampaignDataObject);
+      // merge it all together
       return {
         ...state,
-        [action.payload.name]: {
-          installData: action.payload.installData,
-        },
+        ...campaignData,
       };
     }
     default:
       return state;
   }
 };
-
 
 const App = () => {
   const [currentView, setCurrentView] = useState("overview");
@@ -38,14 +47,9 @@ const App = () => {
   async function fetchCampaignDataWrapper() {
     const response = await fetchCampaignData();
 
-    response.forEach((campaign) => {
-      dispatch({
-        type: "createCampaign",
-        payload: {
-          name: campaign.name,
-          installData: campaign.installs.map((i) => i.value),
-        },
-      });
+    dispatch({
+      type: "createCampaigns",
+      payload: response,
     });
   }
   useEffect(() => {
